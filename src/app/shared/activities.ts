@@ -18,5 +18,23 @@ export const SAVED_ACTIVITIES: IActivity[] = [
     'comments': 'nice day, cool temp',
     'gpxData': '../../assets/gpx/2.gpx'
 
+  },
+  {
+    'id' : 3,
+    'name' : 'Trekking day',
+    'date' : new Date('10/19/2017'),
+    'distance': 7,
+    'comments': 'Felt so refreshing, enjoyed the strong wind and soothing environment',
+    'gpxData': '../../assets/gpx/2.gpx'
+
+  },
+  {
+    'id' : 4,
+    'name' : 'first marathon',
+    'date' : new Date('10/19/2017'),
+    'distance': 10,
+    'comments': 'nice day, cool temp and a nice gathering of people',
+    'gpxData': '../../assets/gpx/2.gpx'
+
   }
 ];
