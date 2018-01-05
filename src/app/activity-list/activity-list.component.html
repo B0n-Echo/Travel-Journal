@@ -8,8 +8,14 @@
     <p class="totals">{{ totalActivities }}</p>
     runs since
     <p class="totals">{{ firstDate | date: 'longDate'}}</p>
+
+<div align="right">
+  <button name="button" class='buttonOne'>Add New</button>
+</div>
+
   </div>
   <hr />
+
   <table class="table table-hover">
     <thead>
       <tr>
@@ -22,7 +28,9 @@
     <tbody>
       <tr *ngFor="let activity of activities">
         <td>
+          <a [routerLink] ="['/run', activity.id]">
             {{ activity.name }}
+          </a>
         </td>
         <td>{{ activity.comments }}</td>
         <td>{{ activity.date | date:"yyyy-MM-dd"}}</td>

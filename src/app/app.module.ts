@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ActivityListComponent } from './activity-list/activity-list.component';
 import { MapComponent } from './map/map.component';
 import { RouterModule } from '@angular/router';
+import { MapService } from './services/map.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { RouterModule } from '@angular/router';
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ActivityService],
+  providers: [ActivityService, MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

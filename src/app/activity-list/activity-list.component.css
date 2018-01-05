@@ -38,3 +38,40 @@ hr{
   color:#333;
   margin: 2px;
 }
+
+.buttonOne{
+  background:rgb(26, 171, 50);
+  color:#fff;
+  border:none;
+  position:relative;
+  height:40px;
+  font-size:1em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.buttonOne:hover{
+  background:#fff;
+  color:rgb(26, 171, 50);;
+}
+.buttonOne:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: rgb(26, 171, 50);;
+  transition:400ms ease all;
+}
+.buttonOne:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.buttonOne:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
