@@ -1,5 +1,5 @@
 <div class="row row-runs">
-  <h2 class="heading" align="center" >My Runs</h2>
+  <h2 class="heading" align="center">My Runs</h2>
   <hr />
   <div class="summary">
     You've logged
@@ -9,9 +9,9 @@
     runs since
     <p class="totals">{{ firstDate | date: 'longDate'}}</p>
 
-<div align="right">
-  <button name="button" class='buttonOne'>Add New</button>
-</div>
+    <div align="right">
+      <button name="button" class='buttonOne' (click)="showDialog()">Add New</button>
+    </div>
 
   </div>
   <hr />
@@ -28,7 +28,7 @@
     <tbody>
       <tr *ngFor="let activity of activities">
         <td>
-          <a [routerLink] ="['/run', activity.id]">
+          <a [routerLink]="['/run', activity.id]">
             {{ activity.name }}
           </a>
         </td>
@@ -38,4 +38,46 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+
+<!-- PopUp modal is here-->
+<div>
+  <p-dialog header="ADD Data" class="animated infinite bounce" [(visible)]="display" modal="modal" [width]="700" scrollable = "true" [responsive]="true">
+    <h3>please add Your details here</h3>
+
+    <br>
+    <br>
+
+    <div class="form-group">
+        <label for="Name" class="col-xs-12 col-md-3">Name</label>
+        <input type="text" pInputText id="Name" [(ngModel)]="Name" />
+    </div>
+
+    <div class="form-group">
+      <label for="Comment" class="col-xs-12 col-md-3">Comment</label>
+      <textarea name="Comment" id="Comment" [rows]="2" [cols]="2" [(ngModel)]="Comment"
+        pInputTextarea (ngModelChange)="onEdit();"></textarea>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <label class="col-xs-12 col-sm-4 col-md-3" for="Attachment">Attachment</label>
+
+      <span class="col-xs-12 col-sm-6 col-md-6 col-lg-4 button-upload-block border-radius" style="padding:0;border:1px solid rgba(0, 0, 0, 0.15);border-radius: 0.25em;line-height:0.8em;overflow:hidden">
+        <p-fileUpload #fileUpload name="fileUpload" mode="basic" chooseLabel="Browse" auto="true" (onSelect)='onSelect($event,fileUpload); onEdit();'>
+        </p-fileUpload>
+
+      </span>
+
+    </div>
+
+    <p-footer>
+      <button type="button" pButton icon="fa-check" (click)="display=false" label="Save"></button>
+      <button type="button" pButton icon="fa-close" (click)="display=false" label="Cancle"></button>
+    </p-footer>
+
+  </p-dialog>
+
 </div>
